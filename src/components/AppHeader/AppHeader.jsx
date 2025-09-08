@@ -1,10 +1,11 @@
+import css from "./AppHeader.module.css"
 import { NavLink } from "react-router-dom";
 import Logo from "../Logo/Logo.jsx";
 
 export default function AppHeader() {
   return (
-    <header >
-      <nav>
+  
+      <header className={css.container}>
       <Logo/>
         <NavLink to="/" >
           Home
@@ -12,7 +13,7 @@ export default function AppHeader() {
         <NavLink to="/catalog" >
           Catalog
         </NavLink>
-      </nav>
-    </header>
+      </header>
+    
   );
 }
