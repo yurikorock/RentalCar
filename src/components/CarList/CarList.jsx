@@ -25,7 +25,7 @@ export default function CarList() {
           </li>
         ))}
       </ul>
-      <button type="button"></button>
+      <button type="button" className={css.btn}>Load more</button>
     </div>
   );
 }
