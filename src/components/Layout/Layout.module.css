@@ -4,6 +4,8 @@
     align-items: center;
     background-color: #f2f4f7;
     padding: 26px 120px;
+    height: 68px;
+    margin-bottom: 4px;
 }
 
 .logo {
