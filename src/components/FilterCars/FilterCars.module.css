@@ -1,0 +1,62 @@
+.form {
+  display: flex;
+  gap: 12px;
+  align-items: flex-end;
+  justify-content: center;
+  font-family: sans-serif;
+  margin-bottom: 56px;
+  margin-top: 64px;
+}
+
+/* Підпис над полем */
+.label {
+  display: flex;
+  flex-direction: column;
+  font-size: 12px;
+  color: #6b7280; /* сірий */
+}
+
+/* Селект і інпути */
+.select,
+.input {
+  margin-top: 4px;
+  padding: 10px 14px;
+  border: none;
+  border-radius: 10px;
+  background: #f9f9f9;
+  font-size: 14px;
+  min-width: 160px;
+}
+
+/* Mileage блок */
+.mileageGroup {
+  display: flex;
+  margin-top: 4px;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #f9f9f9;
+}
+
+.mileageInput {
+  border: none;
+  flex: 1;
+  padding: 10px 14px;
+  font-size: 14px;
+  background: transparent;
+}
+
+.mileageInput + .mileageInput {
+  border-left: 1px solid #ddd;
+}
+
+/* Кнопка */
+.button {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 10px;
+  background: #2563eb; /* синій */
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
