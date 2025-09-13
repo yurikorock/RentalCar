@@ -2,8 +2,8 @@ import updateAddress from "../../helpers/helpers.js";
 import { Link } from "react-router-dom";
 import css from "./CarListItem.module.css"
 
-export default function CarListItem({ data, id }) {
-    const { img, brand, model, year, rentalPrice, address, rentalCompany, type, mileage } = data;
+export default function CarListItem({ data }) {
+    const { id, img, brand, model, year, rentalPrice, address, rentalCompany, type, mileage } = data;
   return (
     <div className={css.car_item}>
       <div className={css.img_container}>

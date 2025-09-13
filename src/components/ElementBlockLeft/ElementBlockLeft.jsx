@@ -1,18 +1,21 @@
 import { useState } from "react";
 import css from "./ElementBlockLeft.module.css";
 
-export default function ElementBlockLeft() {
+export default function ElementBlockLeft({car}) {
   const [dateInput, setDateInput] = useState(true);
   const handleSubmit = (e) => {
+    e.preventDefault();
     return console.log("handleSubmit");
   };
   const handleDateInput = () => {
     setDateInput(false);
   };
+
+  const { img, brand, model, year, rentalPrice } = car;
   return (
     <div className={css.left_block}>
       <div className={css.img}>
-        <img src="../../../public/osminog.jpg" alt="" />
+        <img src={img} alt={`${brand} ${model}`} />
       </div>
       <div className={css.form_container}>
         <h2 className={css.form_title}>Book your car now</h2>
