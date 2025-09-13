@@ -39,11 +39,11 @@ export default function CarList() {
     filters.maxMileage,
   ]);
 
-  //   const filters = useSelector(state => state.filters);
+//     const filters = useSelector(state => state.filters);
 
-  // useEffect(() => {
-  //   dispatch(getCarsList());
-  // }, [dispatch, filters.brand, filters.rentalPrice, filters.minMileage, filters.maxMileage, filters.page]);
+//   useEffect(() => {
+//     dispatch(getCarsList());
+//   }, [dispatch, filters.brand, filters.rentalPrice, filters.minMileage, filters.maxMileage, filters.page]);
 
   const handleLoadMore = () => {
     if (page < totalPages) {

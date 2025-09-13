@@ -71,7 +71,7 @@ export default function FilterCars() {
       })
     );
 
-    // actions.resetForm();
+    actions.resetForm();
   };
 
   return (

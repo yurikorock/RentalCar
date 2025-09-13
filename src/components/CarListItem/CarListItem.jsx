@@ -2,7 +2,7 @@ import updateAddress from "../../helpers/helpers.js";
 import { Link } from "react-router-dom";
 import css from "./CarListItem.module.css"
 
-export default function CarListItem({ data }) {
+export default function CarListItem({ data, id }) {
     const { img, brand, model, year, rentalPrice, address, rentalCompany, type, mileage } = data;
   return (
     <div className={css.car_item}>
@@ -21,8 +21,8 @@ export default function CarListItem({ data }) {
       <div className={css.bottom_block}>
         <p>{type}</p>|<p>{mileage.toLocaleString()} km</p>
       </div>
-       <Link className={css.link} >Read more</Link>
-       {/* <Link className={css.link} to={`/catalog/${id}`}>Read more</Link> */}
+       {/* <Link className={css.link} >Read more</Link> */}
+       <Link className={css.link} to={`/catalog/${id}`}>Read more</Link>
     </div>
   );
 }

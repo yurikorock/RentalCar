@@ -11,7 +11,7 @@ export default function Layout() {
         </NavLink>
         <nav className={css.nav}>
           <NavLink to="/" className={setActive}>Home</NavLink>
-          <NavLink to="/catalog" className={setActive}>Catalog</NavLink>
+          <NavLink to="/catalog" end className={setActive}>Catalog</NavLink>
         </nav>
       </header>
       <main>
