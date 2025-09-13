@@ -5,13 +5,16 @@ const BASE_URL = "https://car-rental-api.goit.global/";
 
 export const getCarsList = createAsyncThunk(
   "get/getCarsList",
-  async (page,thunkAPI) => {
+  async (_, thunkAPI) => {
     try {
-      const response = await axios.get(`${BASE_URL}cars?page=${page}&limit=12`);
-      return  response.data;
+      const state = thunkAPI.getState();
+      const filters = state.filters; //brand,rentalPrice,minMileage,maxMileage,page,limit,
+      const response = await axios.get(`${BASE_URL}cars`, {
+        params: { ...filters },
+      });
+      return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
-}
-
+  }
 );

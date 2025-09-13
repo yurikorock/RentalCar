@@ -1,12 +1,21 @@
 import { useId } from "react";
 import { Formik, Form, Field } from "formik";
 import css from "./FilterCars.module.css";
+import { useDispatch } from "react-redux";
+import {
+  setBrand,
+  setMaxMileage,
+  setMinMileage,
+  setPage,
+  setRentalPrice,
+} from "../../redux/filtersSlice.js";
+import { getCarsList } from "../../redux/operations.js";
 
 const initialValues = {
   brand: "",
-  price: "",
-  mileageFrom: "",
-  mileageTo: "",
+  rentalPrice: "",
+  minMileage: "",
+  maxMileage: "",
 };
 
 const carBrands = [
@@ -41,9 +50,28 @@ export default function FilterCars() {
   const mileageFromId = useId();
   const mileageToId = useId();
 
+  const dispatch = useDispatch();
+
   const handleSubmit = (values, actions) => {
-    console.log("Filter values:", values);
-    actions.resetForm();
+    // console.log("Filter values:", values);
+
+    dispatch(setBrand(values.brand));
+    dispatch(setRentalPrice(values.rentalPrice));
+    dispatch(setMinMileage(values.minMileage));
+    dispatch(setMaxMileage(values.maxMileage));
+    dispatch(setPage(1));
+
+    dispatch(
+      getCarsList({
+        page: 1,
+        brand: values.brand,
+        rentalPrice: values.rentalPrice,
+        minMileage: values.minMileage,
+        maxMileage: values.maxMileage,
+      })
+    );
+
+    // actions.resetForm();
   };
 
   return (
@@ -52,7 +80,12 @@ export default function FilterCars() {
         {/* Car brand */}
         <label className={css.label} htmlFor={brandFieldId}>
           Car brand
-          <Field as="select" name="brand" id={brandFieldId} className={css.select}>
+          <Field
+            as="select"
+            name="brand"
+            id={brandFieldId}
+            className={css.select}
+          >
             <option value="">Choose a brand</option>
             {carBrands.map((brand) => (
               <option key={brand} value={brand}>
@@ -65,11 +98,16 @@ export default function FilterCars() {
         {/* Price per hour */}
         <label className={css.label} htmlFor={priceFieldId}>
           Price / 1 hour
-          <Field as="select" name="price" id={priceFieldId} className={css.select}>
+          <Field
+            as="select"
+            name="rentalPrice"
+            id={priceFieldId}
+            className={css.select}
+          >
             <option value="">Choose a price</option>
             {prices.map((price) => (
               <option key={price} value={price}>
-                ${price}
+                {price}
               </option>
             ))}
           </Field>
@@ -81,14 +119,14 @@ export default function FilterCars() {
           <div className={css.mileageGroup}>
             <Field
               type="number"
-              name="mileageFrom"
+              name="minMileage"
               id={mileageFromId}
               placeholder="From"
               className={css.mileageInput}
             />
             <Field
               type="number"
-              name="mileageTo"
+              name="maxMileage"
               id={mileageToId}
               placeholder="To"
               className={css.mileageInput}

@@ -4,6 +4,8 @@ import {
   selectCarsList,
   selectError,
   selectIsLoading,
+  selectPage,
+  selectTotalPages,
 } from "../../redux/selectors.js";
 import { useEffect } from "react";
 import { getCarsList } from "../../redux/operations.js";
@@ -14,14 +16,34 @@ export default function CarList() {
   const carsList = useSelector(selectCarsList);
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
-  const page = useSelector((state) => state.cars.page);
-  const totalPages = useSelector((state) => state.cars.totalPages);
+  const page = useSelector(selectPage);
+  const totalPages = useSelector(selectTotalPages);
+  const filters = useSelector((state) => state.filters);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getCarsList(page));
-  }, [dispatch, page]);
+    dispatch(getCarsList({
+    page,
+    brand: filters.brand,
+    rentalPrice: filters.rentalPrice,
+    minMileage: filters.minMileage,
+    maxMileage: filters.maxMileage,
+  }));
+  }, [
+    dispatch,
+    page,
+    filters.brand,
+    filters.rentalPrice,
+    filters.minMileage,
+    filters.maxMileage,
+  ]);
+
+  //   const filters = useSelector(state => state.filters);
+
+  // useEffect(() => {
+  //   dispatch(getCarsList());
+  // }, [dispatch, filters.brand, filters.rentalPrice, filters.minMileage, filters.maxMileage, filters.page]);
 
   const handleLoadMore = () => {
     if (page < totalPages) {
