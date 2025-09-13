@@ -1,5 +1,5 @@
 import css from "./ElementBlockRight.module.css";
-import sprite from "../../../public/sprite.svg"
+import sprite from "../../../public/sprite.svg";
 import updateAddress from "../../helpers/helpers.js";
 
 export default function ElementBlockRight({ car }) {
@@ -21,25 +21,42 @@ export default function ElementBlockRight({ car }) {
   } = car;
   return (
     <div className={css.right_block}>
+      {/* TOP-BLOCK */}
       <div className={css.top_block}>
-          <div className={css.name_block}>
-            <h2 className={css.name}>
-              {brand} {model}, {year}
-            </h2>
-            <p className={css.id}>Id: {id.slice(0, 4)}</p>
+        <div className={css.name_block}>
+          <h2 className={css.name}>
+            {brand} {model}, {year}
+          </h2>
+          <p className={css.id}>Id: {id.slice(0, 4)}</p>
+        </div>
+        <div className={css.address_box}>
+          <div className={css.address_box_item}>
+            <svg className={css.icon_location}>
+              <use href={sprite + "#icon-location"} />
+            </svg>
+            <p className={css.address}>{updateAddress(address)}</p>
           </div>
-          <div className={css.address_box}>
-            <div className={css.address_box_item}>
-                <svg className={css.icon_location}>
-                    <use href={sprite + "#icon-location"}/>
-                </svg>
-                 <p className={css.address}>{updateAddress(address)}</p>
-            </div>
-            <p className={css.mileage}>Mileage: {mileage.toLocaleString()} km</p>
-          </div>
-          <p className={css.price}>$ {rentalPrice}</p>
-          <p className={css.description}>{description}</p>
+          <p className={css.mileage}>Mileage: {mileage.toLocaleString()} km</p>
+        </div>
+        <p className={css.price}>$ {rentalPrice}</p>
+        <p className={css.description}>{description}</p>
       </div>
+      {/* CONDITIONS */}
+      <div className={css.conditions_block}>
+        <p>Rental conditions:</p>
+        <ul className={css.cond_list}>
+            {rentalConditions.map((item, index)=> (
+            <li key={index} className={css.cond_list_item}>
+                <svg className={css.icon}>
+                    <use href={sprite + "#icon-check-circle"}></use>
+                </svg>
+                <p>{item}</p>
+            </li>
+            ))}
+        </ul>
+      </div>
+      {/* FUNCTIONALITIES */}
+      {/* SPECIFICATIONS */}
     </div>
   );
 }
