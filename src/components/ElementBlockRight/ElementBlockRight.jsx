@@ -55,8 +55,29 @@ export default function ElementBlockRight({ car }) {
             ))}
         </ul>
       </div>
+      {/* CAR SPECIFICATIONS */}
       {/* FUNCTIONALITIES */}
-      {/* SPECIFICATIONS */}
+      <div className={css.functionalities_block}>
+        <p>Accessories and functionalities:</p>
+        <ul className={css.functionalities_list}>
+            {accessories.map((item, index)=> (
+            <li key={index} className={css.functionalities_list_item}>
+                <svg className={css.icon}>
+                    <use href={sprite + "#icon-check-circle"}></use>
+                </svg>
+                <p>{item}</p>
+            </li>
+            ))}
+            {functionalities.map((item, index)=> (
+            <li key={index} className={css.functionalities_list_item}>
+                <svg className={css.icon}>
+                    <use href={sprite + "#icon-check-circle"}></use>
+                </svg>
+                <p>{item}</p>
+            </li>
+            ))}
+        </ul>
+      </div>
     </div>
   );
 }
