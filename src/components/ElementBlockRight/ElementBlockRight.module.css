@@ -1,4 +1,83 @@
-.right_block{
-max-width: 488px;
-padding-top: 20px;
+.right_block {
+    max-width: 488px;
+    padding-top: 20px;
+}
+
+.top_block {
+    margin-bottom: 68px;
+}
+
+.name_block {
+    display: flex;
+    justify-content: flex-start;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 8px;
+    font-family: "Manrope", sans-serif;
+}
+
+.name {
+
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 1.33333;
+    text-align: center;
+    color: #101828;
+}
+
+.id {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.25;
+    color: #8d929a;
+}
+
+.address_box {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.address_box_item {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 2px;
+}
+
+.icon_location {
+    width: 16px;
+    height: 16px;
+}
+
+.address {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.25;
+    color: #101828;
+}
+
+.mileage {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.25;
+    color: #101828;
+}
+.price{
+font-weight: 600;
+  font-size: 24px;
+  line-height: 1.33;
+  color: #3470ff;
+  margin-bottom: 32px;
+}
+.description{
+font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #101828;
+  margin-bottom: 68px;
+  max-width: 488px;
+
 }
