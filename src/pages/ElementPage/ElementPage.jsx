@@ -2,6 +2,8 @@ import { useParams } from "react-router-dom";
 import ElementBlockLeft from "../../components/ElementBlockLeft/ElementBlockLeft.jsx";
 import { useSelector } from "react-redux";
 import { selectCarsList } from "../../redux/selectors.js";
+import css from "./ElementPage.module.css"
+import ElementBlockRight from "../../components/ElementBlockRight/ElementBlockRight.jsx";
 
 export default function ElementPage(){
     const {id} = useParams();
@@ -12,9 +14,10 @@ export default function ElementPage(){
         return <p>Car not found !</p>
     }
     return (
-        <div>
-            <p>ElementPage</p>
+        <div className={css.container}>
+          
             <ElementBlockLeft car={car}/>
+             <ElementBlockRight car={car}/>
         </div>
     )
 }

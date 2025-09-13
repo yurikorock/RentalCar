@@ -21,7 +21,6 @@ export default function CarListItem({ data }) {
       <div className={css.bottom_block}>
         <p>{type}</p>|<p>{mileage.toLocaleString()} km</p>
       </div>
-       {/* <Link className={css.link} >Read more</Link> */}
        <Link className={css.link} to={`/catalog/${id}`}>Read more</Link>
     </div>
   );

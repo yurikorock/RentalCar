@@ -1,5 +1,5 @@
 .left_block{
-  margin-top: 84px;
+  max-width: 640px;
   margin-bottom: 104px;
 }
 .img{
@@ -101,4 +101,7 @@ width: 100%;
   line-height: 1.25;
   color: #fff;
   font-family: "Manrope", sans-serif;
+}
+.error{
+color: red;
 }
