@@ -8,9 +8,10 @@ export const getCarsList = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const state = thunkAPI.getState();
+      const { page } = state.cars;
       const filters = state.filters; //brand,rentalPrice,minMileage,maxMileage,page,limit,
       const response = await axios.get(`${BASE_URL}cars`, {
-        params: { ...filters },
+        params: { page, limit: 12, ...filters },
       });
       return response.data;
     } catch (error) {

@@ -6,10 +6,10 @@ import {
   setBrand,
   setMaxMileage,
   setMinMileage,
-  setPage,
   setRentalPrice,
 } from "../../redux/filtersSlice.js";
 import { getCarsList } from "../../redux/operations.js";
+import { setPage } from "../../redux/slice.js";
 
 const initialValues = {
   brand: "",

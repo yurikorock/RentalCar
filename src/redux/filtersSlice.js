@@ -5,8 +5,7 @@ const initialState = {
   rentalPrice: "",
   minMileage: "",
   maxMileage: "",
-  page: 1,
-  limit: 12,
+ 
 };
 const filtersSlice = createSlice({
   name: "filters",
@@ -28,17 +27,7 @@ const filtersSlice = createSlice({
       state.maxMileage = action.payload;
       state.page = 1;
     },
-    setPage: (state, action) => {
-      state.page = action.payload;
-    },
-    resetFilters: (state, action) => {
-      state.brand = "";
-      state.rentalPrice = "";
-      state.minMileage = "";
-      state.maxMileage = "";
-      state.page = 1;
-      state.limit = 12;
-    },
+  
   },
 });
 
