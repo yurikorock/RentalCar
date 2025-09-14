@@ -12,6 +12,7 @@ import { getCarsList } from "../../redux/operations.js";
 import css from "./CarList.module.css";
 import { setPage } from "../../redux/slice.js";
 import { BeatLoader } from "react-spinners";
+import { useRef } from "react";
 
 export default function CarList() {
   const carsList = useSelector(selectCarsList);
@@ -22,6 +23,7 @@ export default function CarList() {
   const filters = useSelector((state) => state.filters);
 
   const dispatch = useDispatch();
+  const listEndRef = useRef(null);
 
   useEffect(() => {
     dispatch(
@@ -41,6 +43,12 @@ export default function CarList() {
     filters.minMileage,
     filters.maxMileage,
   ]);
+
+  useEffect(()=> {
+    if(carsList.length > 0 && page > 1){
+        listEndRef.current?.scrollIntoView({behavior:"smooth"})
+    }
+  }, [carsList, page]);
 
   //     const filters = useSelector(state => state.filters);
 
@@ -68,6 +76,7 @@ export default function CarList() {
             <CarListItem data={item} />
           </li>
         ))}
+        <div ref={listEndRef}></div>
       </ul>
       {page < totalPages && (
         <button
