@@ -56,6 +56,33 @@ export default function ElementBlockRight({ car }) {
         </ul>
       </div>
       {/* CAR SPECIFICATIONS */}
+      <div className={css.specification_block}>
+        <p>Car specification:</p>
+        <div className={css.year}>
+            <svg className={css.icon_calendar}>
+                <use href={sprite + "#icon-calendar"}></use>
+            </svg>
+            <p>Year: {year}</p>
+        </div>
+        <div className={css.type}>
+            <svg className={css.icon_car}>
+                <use href={sprite + "#icon-car"}></use>
+            </svg>
+            <p>Type: {type}</p>
+        </div>
+        <div className={css.consumption}>
+            <svg className={css.icon_fuel_pump}>
+                <use href={sprite + "#icon-fuel-pump"}></use>
+            </svg>
+            <p>Fuel consumption: {fuelConsumption}</p>
+        </div>
+         <div className={css.engine_size}>
+            <svg className={css.icon_gear}>
+                <use href={sprite + "#icon-gear"}></use>
+            </svg>
+            <p>Engine size: {engineSize}</p>
+        </div>
+      </div>
       {/* FUNCTIONALITIES */}
       <div className={css.functionalities_block}>
         <p>Accessories and functionalities:</p>
