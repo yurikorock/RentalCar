@@ -1,12 +1,50 @@
-# React + Vite
+##  Project Overview
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+RentalCar is a frontend web application for a car rental company. 
+It allows users to browse available cars, filter listings based on specific criteria, view detailed information about each car, and book a car for rental. The application is built using React with Vite and utilizes Redux for state management.
 
-Currently, two official plugins are available:
+## 📄 Pages
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1. **Home page** (`/`)
 
-## Expanding the ESLint configuration
+   - Banner with call-to-action.
+   - **View Catalog** button → navigates to the catalog.
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+2. **Catalog** (`/catalog`)
+
+   - Displays a list of available cars.
+   - Filtering (done on the backend) by:
+     - brand
+     - price
+     - mileage (`from` / `to`)
+   - Add cars to _Favorites_.
+   - Pagination with **Load More** button.
+   - Mileage formatted with space (e.g. `5 000 km`).
+   - **Read more** button → navigates to car details.
+
+3. **Car details** (`/catalog/:id`)
+   - Photo + detailed description.
+   - Booking form: after successful submission → notification about successful booking.
+
+## Tech Stack
+
+- React with Vite
+- Redux for state management
+- React Router for client-side routing
+- Axios for API requests
+
+## API Integration
+
+The app interacts with the backend API documented at: Car Rental API Docs.
+🏗 Installation & Setup
+Clone the repository:
+
+git clone https://github.com/yourusername/rentalcar.git cd rentalcar
+Install dependencies:
+npm install
+
+Start the development server:
+npm run dev
+
+Deploy the project (optional, e.g., using Vercel or Netlify):
+npm run build
