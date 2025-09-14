@@ -172,15 +172,19 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    gap: 20px;
+    gap: 16px;
     margin-bottom: 110px;
 }
+.specification_block > *:first-child {
+  margin-bottom: 4px; 
+}
 
-.specification_block>p {
+.specification_block > p {
     font-weight: 600;
     font-size: 20px;
     line-height: 1.2;
     color: #101828;
+    
 }
 
 .year {
