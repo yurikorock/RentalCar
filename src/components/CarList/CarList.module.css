@@ -41,3 +41,9 @@
      border:  1px solid #0b44cd;
      transform: scale(1.05);
 }
+.loaderWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+}

@@ -11,6 +11,7 @@ import { useEffect } from "react";
 import { getCarsList } from "../../redux/operations.js";
 import css from "./CarList.module.css";
 import { setPage } from "../../redux/slice.js";
+import { BeatLoader } from "react-spinners";
 
 export default function CarList() {
   const carsList = useSelector(selectCarsList);
@@ -23,13 +24,15 @@ export default function CarList() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getCarsList({
-    page,
-    brand: filters.brand,
-    rentalPrice: filters.rentalPrice,
-    minMileage: filters.minMileage,
-    maxMileage: filters.maxMileage,
-  }));
+    dispatch(
+      getCarsList({
+        page,
+        brand: filters.brand,
+        rentalPrice: filters.rentalPrice,
+        minMileage: filters.minMileage,
+        maxMileage: filters.maxMileage,
+      })
+    );
   }, [
     dispatch,
     page,
@@ -39,11 +42,11 @@ export default function CarList() {
     filters.maxMileage,
   ]);
 
-//     const filters = useSelector(state => state.filters);
+  //     const filters = useSelector(state => state.filters);
 
-//   useEffect(() => {
-//     dispatch(getCarsList());
-//   }, [dispatch, filters.brand, filters.rentalPrice, filters.minMileage, filters.maxMileage, filters.page]);
+  //   useEffect(() => {
+  //     dispatch(getCarsList());
+  //   }, [dispatch, filters.brand, filters.rentalPrice, filters.minMileage, filters.maxMileage, filters.page]);
 
   const handleLoadMore = () => {
     if (page < totalPages) {
@@ -53,6 +56,12 @@ export default function CarList() {
 
   return (
     <div>
+      {isLoading && (
+        <div className={css.loaderWrapper}>
+          <BeatLoader color="#3470FF" />
+        </div>
+      )}
+
       <ul className={css.list}>
         {carsList.map((item) => (
           <li key={item.id} className={css.item}>
