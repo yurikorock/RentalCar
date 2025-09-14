@@ -1,17 +1,18 @@
 .form {
   display: flex;
-  gap: 12px;
+  gap: 16px;
   align-items: flex-end;
   justify-content: center;
   font-family: sans-serif;
   margin-bottom: 56px;
-  margin-top: 64px;
+  margin-top: 84px;
 }
 
 /* Підпис над полем */
 .label {
   display: flex;
   flex-direction: column;
+  gap: 8px;
   font-size: 12px;
   color: #6b7280; /* сірий */
 }
@@ -59,4 +60,7 @@
   font-size: 14px;
   font-weight: 500;
   cursor: pointer;
+}
+.button:hover {
+    background-color: #0b44cd;
 }

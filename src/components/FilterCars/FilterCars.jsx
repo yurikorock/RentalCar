@@ -121,14 +121,14 @@ export default function FilterCars() {
               type="number"
               name="minMileage"
               id={mileageFromId}
-              placeholder="From"
+              placeholder="From 3,000"
               className={css.mileageInput}
             />
             <Field
               type="number"
               name="maxMileage"
               id={mileageToId}
-              placeholder="To"
+              placeholder="To 5,000"
               className={css.mileageInput}
             />
           </div>
